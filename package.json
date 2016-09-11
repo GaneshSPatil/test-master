@@ -1,11 +1,16 @@
 {
-  "name": "test",
+  "name": "test-master",
   "version": "1.0.0",
-  "description": "a simple test runner",
-  "main": "index.js",
-  "scripts": {
-    "test": "foo"
+  "description": "",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaneshSPatil/test-master.git"
   },
-  "author": "GaneshSPatil",
-  "license": "ISC"
+  "author": "Ganesh Patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaneshSPatil/test-master/issues"
+  },
+  "homepage": "https://github.com/GaneshSPatil/test-master/request.log"
 }
