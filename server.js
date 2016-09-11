@@ -9,13 +9,30 @@ var app = express();
 app.use(bodyParser());
 
 app.use(function(req, res, next){
-  console.log(req.method, req.url);
+  var time = new Date();
+
+  var info = {};
+  info.Time = time.toLocaleTimeString();
+  info.Date = time.toLocaleDateString();
+  info.userName = req.body.name;
+  info.userId = req.body.id;
+  info.isValid = isValidUser(info.userId);
+  info.testCount = isValidUser(info.userId) ? getTestCount(info.userId) : 0;
+  console.log(JSON.stringify(info));
   next();
 });
 
+var getTestCount = function(userId){
+  return userInfo[userId].length
+}
+
+var isValidUser = function(userId){
+  return _.includes(_.keys(userInfo), userId);
+}
+
 app.use(function(req, res, next){
-  var userId = req.body['id'];
-  if(_.includes(_.keys(userInfo), userId)){
+  var userId = req.body.id;
+  if(isValidUser(userId)){
     next();
   }else{
     var response = {};
