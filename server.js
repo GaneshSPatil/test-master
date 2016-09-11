@@ -19,6 +19,7 @@ app.use(function(req, res, next){
   info.isValid = isValidUser(info.userId);
   info.testCount = isValidUser(info.userId) ? getTestCount(info.userId) : 0;
   console.log(JSON.stringify(info));
+  fs.appendFileSync('./request.log', JSON.stringify(info));
   next();
 });
 
